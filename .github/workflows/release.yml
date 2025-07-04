@@ -1,0 +1,32 @@
+name: Release
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - v[0-9]+.*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout code
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Create the release asset
+    - name: Create release asset
+      run: |
+        mkdir -p release-assets
+        tar -czf release-assets/fm-saxml-id-name-maps-${GITHUB_REF_NAME}.tar.gz -C . create_maps.sh xsl/
+
+    # Upload the release asset to GitHub Releases
+    - name: Upload release asset
+      uses: softprops/action-gh-release@v2
+      with:
+        files: release-assets/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

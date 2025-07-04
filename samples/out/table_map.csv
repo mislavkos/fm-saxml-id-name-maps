@@ -1,0 +1,13 @@
+db,table_id,table_name
+Admin API Tool,129,fmserver
+Admin API Tool,130,schedules
+Admin API Tool,131,files
+Admin API Tool,132,clients
+Admin API Tool,133,guestFiles
+Admin API Tool,134,wpe
+Admin API Tool,135,schedules_saved
+Admin API Tool,137,plugins
+Admin API Tool,138,publickeys
+Ooe,129,TestTable
+Ooe,131,Contacts
+Ooe,132,blank
